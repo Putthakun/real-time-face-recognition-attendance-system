@@ -28,39 +28,7 @@ The system is split into five independently deployable repositories, each with i
 
 ## Architecture
 
-```
-┌────────────────────┐      face_events / face.detected      ┌──────────────────────────┐
-│ face-recognition-   │ ───────────────────────────────────▶ │ face-recognition-server   │
-│ edge                │        (RabbitMQ, face crop JPEG)     │ (InsightFace matching)    │
-│                     │                                        │                          │
-│ • OpenCV stream     │                                        │ • Embedding extraction    │
-│ • YOLOv8 detection  │                                        │ • Cosine similarity match │
-│ • MJPEG /stream     │                                        │ • Cooldown rules          │
-└─────────┬───────────┘                                        └─────────┬────────────────┘
-          │                                                              │
-          │ embedding extraction                          POST /api/transactions
-          │ (enrollment)                                  GET  /api/embeddings
-          │                                                              │
-          ▼                                                              ▼
-┌────────────────────────────────────────────────────────────────────────────────┐
-│ face-recognition-api  (.NET 10 / ASP.NET Core)                                  │
-│                                                                                  │
-│ • JWT auth, role-based authorization (Admin / Supervisor / Employee)           │
-│ • Employee, Camera, Transaction management (EF Core + SQL Server)              │
-│ • Redis "face:vectors" cache sync                                              │
-└─────────┬───────────────────────────────────────────────────────────┬──────────┘
-          │                                                            │
-          ▼                                                            ▼
-┌────────────────────┐                                     ┌──────────────────────────┐
-│ face-recognition-   │                                     │ face-recognition-infra    │
-│ web (Vue 3 SPA)     │                                     │                          │
-│                     │                                     │ • Azure SQL Edge          │
-│ • Login / dashboard │                                     │ • Redis                  │
-│ • Employee & camera │                                     │ • RabbitMQ                │
-│   management        │                                     │   (shared Docker network) │
-│ • Attendance history │                                     └──────────────────────────┘
-└────────────────────┘
-```
+![Architecture]([https://github.com/user-attachments/assets/a7a6027c-1bed-4b00-86d7-5c2a3cb154ce](https://github.com/user-attachments/assets/c20aafd2-c87f-4d4b-bbb2-a95ec8c15af9))
 
 **Flow summary:**
 
