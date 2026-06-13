@@ -76,11 +76,11 @@ The system is split into five independently deployable repositories, each with i
 
 | Repository | Stack | Role |
 |---|---|---|
-| [`face-recognition-edge`](../face-recognition-edge) | Python, FastAPI, OpenCV, YOLOv8, aio-pika | Captures video, detects faces, streams live MJPEG, publishes detection events |
-| [`face-recognition-server`](../face-recognition-server) | Python, FastAPI, InsightFace, aio-pika, Redis | Extracts embeddings, matches faces, applies cooldowns, records attendance |
-| [`face-recognition-api`](../face-recognition-api) | .NET 10, ASP.NET Core, EF Core, SQL Server, Redis, JWT | Core API — employees, cameras, transactions, auth, face-vector cache |
-| [`face-recognition-web`](../face-recognition-web) | Vue 3, TypeScript, Vite, Pinia | Admin/supervisor dashboard |
-| [`face-recognition-infra`](../face-recognition-infra) | Docker Compose | Shared SQL Server, Redis, RabbitMQ |
+| [`face-recognition-edge`](https://github.com/Putthakun/face-recognition-edge) | Python, FastAPI, OpenCV, YOLOv8, aio-pika | Captures video, detects faces, streams live MJPEG, publishes detection events |
+| [`face-recognition-server`](https://github.com/Putthakun/face-recognition-server) | Python, FastAPI, InsightFace, aio-pika, Redis | Extracts embeddings, matches faces, applies cooldowns, records attendance |
+| [`face-recognition-api`](https://github.com/Putthakun/face-recognition-api) | .NET 10, ASP.NET Core, EF Core, SQL Server, Redis, JWT | Core API — employees, cameras, transactions, auth, face-vector cache |
+| [`face-recognition-web`](https://github.com/Putthakun/face-recognition-web) | Vue 3, TypeScript, Vite, Pinia | Admin/supervisor dashboard |
+| [`face-recognition-infra`](https://github.com/Putthakun/face-recognition-infrastructure) | Docker Compose | Shared SQL Server, Redis, RabbitMQ |
 
 ---
 
@@ -96,10 +96,10 @@ The system is split into five independently deployable repositories, each with i
 
 ## Getting Started
 
-1. Start shared infrastructure: [`face-recognition-infra`](../face-recognition-infra) (`make up`)
-2. Start the core API: [`face-recognition-api`](../face-recognition-api)
-3. Start the recognition server: [`face-recognition-server`](../face-recognition-server)
-4. Start the edge service (with a webcam or RTSP source): [`face-recognition-edge`](../face-recognition-edge)
-5. Start the dashboard: [`face-recognition-web`](../face-recognition-web)
+1. Start shared infrastructure: [`face-recognition-infra`](https://github.com/Putthakun/face-recognition-infrastructure) (`make up`)
+2. Start the core API: [`face-recognition-api`](https://github.com/Putthakun/face-recognition-api)
+3. Start the recognition server: [`face-recognition-server`](https://github.com/Putthakun/face-recognition-server)
+4. Start the edge service (with a webcam or RTSP source): [`face-recognition-edge`](https://github.com/Putthakun/face-recognition-edge)
+5. Start the dashboard: [`face-recognition-web`](https://github.com/Putthakun/face-recognition-web)
 
 Each repository's README has detailed setup, configuration, and API documentation.
