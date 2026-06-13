@@ -28,7 +28,7 @@ The system is split into five independently deployable repositories, each with i
 
 ## Architecture
 
-![Architecture]([https://github.com/user-attachments/assets/a7a6027c-1bed-4b00-86d7-5c2a3cb154ce](https://github.com/user-attachments/assets/c20aafd2-c87f-4d4b-bbb2-a95ec8c15af9))
+![Architecture]([https://github.com/user-attachments/assets/c20aafd2-c87f-4d4b-bbb2-a95ec8c15af9])
 
 **Flow summary:**
 
